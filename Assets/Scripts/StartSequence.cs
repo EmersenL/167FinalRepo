@@ -6,8 +6,9 @@ public class StartSequence : MonoBehaviour
 {
     [SerializeField]
     private Animator myKickAnim;
-    [SerializeField]
-    private Animator myBassAnim;
+    // [SerializeField]
+    // private Animator myBassAnim;
+    public GameObject bassPrefab;
     private bool animated = false;
 
     public AudioSource music;
@@ -18,7 +19,8 @@ public class StartSequence : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !animated)
         {
             myKickAnim.SetBool("PlayBounce", true);
-            myBassAnim.SetBool("PlayBass", true);
+            // myBassAnim.SetBool("PlayBass", true);
+            Instantiate(bassPrefab, new Vector3(-2.09f, 9.477f, -7.93f), Quaternion.identity);
             music.Play();
             animated = true;
         }
