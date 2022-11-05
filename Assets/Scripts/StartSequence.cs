@@ -5,7 +5,9 @@ using UnityEngine;
 public class StartSequence : MonoBehaviour
 {
     [SerializeField]
-    private Animator myAnim;
+    private Animator myKickAnim;
+    [SerializeField]
+    private Animator myBassAnim;
     private bool animated = false;
 
     public AudioSource music;
@@ -15,7 +17,8 @@ public class StartSequence : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !animated)
         {
-            myAnim.SetBool("PlayBounce", true);
+            myKickAnim.SetBool("PlayBounce", true);
+            myBassAnim.SetBool("PlayBass", true);
             music.Play();
             animated = true;
         }
