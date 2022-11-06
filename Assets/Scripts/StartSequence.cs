@@ -5,24 +5,36 @@ using UnityEngine;
 public class StartSequence : MonoBehaviour
 {
     [SerializeField]
+    private Animator myLead;
+    [SerializeField]
+    private Animator mySnareAnim;
+    [SerializeField]
     private Animator myKickAnim;
-    // [SerializeField]
-    // private Animator myBassAnim;
     public GameObject bassPrefab;
     private bool animated = false;
 
     public AudioSource music;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !animated)
         {
+            myLead.SetBool("PlayLead", true);
+            mySnareAnim.SetBool("PlaySnare", true);
             myKickAnim.SetBool("PlayBounce", true);
-            // myBassAnim.SetBool("PlayBass", true);
-            Instantiate(bassPrefab, new Vector3(-2.09f, 9.477f, -7.93f), Quaternion.identity);
+            StartCoroutine(BassCoroutine());
             music.Play();
             animated = true;
+        }
+    }
+
+    IEnumerator BassCoroutine()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            Instantiate(bassPrefab, new Vector3(-2.09f, 9.477f, -7.93f), bassPrefab.transform.rotation);
+            yield return new WaitForSeconds(0.25f);
         }
     }
 }
