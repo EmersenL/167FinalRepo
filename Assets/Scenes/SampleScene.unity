@@ -1024,7 +1024,7 @@ MonoBehaviour:
   myLead: {fileID: 1907810536}
   mySnareAnim: {fileID: 753730259}
   myKickAnim: {fileID: 1796626968}
-  bassPrefab: {fileID: 7707001731403366667, guid: 36f38b10d3350324bbdd4bde16972dcb,
+  bassPrefab: {fileID: 5951211131150739841, guid: 79f8c6c8d415d53498dc5b8ff4ea4217,
     type: 3}
   music: {fileID: 1188055429}
 --- !u!4 &946575175

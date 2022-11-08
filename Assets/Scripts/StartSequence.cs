@@ -24,17 +24,22 @@ public class StartSequence : MonoBehaviour
             mySnareAnim.SetBool("PlaySnare", true);
             myKickAnim.SetBool("PlayBounce", true);
             StartCoroutine(BassCoroutine());
-            music.Play();
             animated = true;
+            StartMusic(animated);
         }
     }
 
     IEnumerator BassCoroutine()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 4; i++)
         {
             Instantiate(bassPrefab, new Vector3(-2.09f, 9.477f, -7.93f), bassPrefab.transform.rotation);
             yield return new WaitForSeconds(0.25f);
         }
+    }
+
+    void StartMusic(bool anim)
+    {
+        if (anim == true) music.Play();
     }
 }
