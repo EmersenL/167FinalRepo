@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LightDimmer : MonoBehaviour
 {
@@ -47,12 +48,18 @@ public class LightDimmer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.S) && !trigger)
+    //    {
+    //        changeLights[counter++]();
+    //    }
+    //    if (counter > 2) counter = 0;
+    //}
+
+    public void LightTrigger()
     {
-        if (Input.GetKeyDown(KeyCode.S) && !trigger)
-        {
-            changeLights[counter++]();
-        }
+        changeLights[counter++]();
         if (counter > 2) counter = 0;
     }
 
