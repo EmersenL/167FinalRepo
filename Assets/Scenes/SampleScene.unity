@@ -1002,6 +1002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946575175}
   - component: {fileID: 946575174}
+  - component: {fileID: 946575176}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1042,6 +1043,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946575176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946575173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98235a384b85345498c3efb58311f7cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dirLight: {fileID: 410087039}
+  spot1: {fileID: 257205255}
+  spot2: {fileID: 1837289483}
+  spot3: {fileID: 24771496}
+  point1: {fileID: 1640407397}
+  matLight1: {fileID: 1907810534}
+  startColor: {r: 0.050980393, g: 0.09411765, b: 0.7490196, a: 1}
 --- !u!1 &1188055428
 GameObject:
   m_ObjectHideFlags: 0
