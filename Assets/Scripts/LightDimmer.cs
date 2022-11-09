@@ -22,8 +22,8 @@ public class LightDimmer : MonoBehaviour
     Renderer matl1;
     public Color startColor;
 
-    //boolean trigger
-    bool trigger = false;
+    // boolean trigger
+    //bool trigger = false;
 
     //LightsChanger
     delegate void LightsChange();
@@ -79,7 +79,7 @@ public class LightDimmer : MonoBehaviour
         light3.enabled = false;
         plight1.enabled = false;
         matl1.material.DisableKeyword("_EMISSION");
-        trigger = false;
+        //trigger = false;
     }
 
     void LightsOn()
@@ -94,6 +94,6 @@ public class LightDimmer : MonoBehaviour
         plight1.enabled = true;
         matl1.material.EnableKeyword("_EMISSION");
         matl1.material.SetColor("_EmissionColor", startColor * 46f);
-        trigger = false;
+        //trigger = false;
     }
 }
