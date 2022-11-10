@@ -11,7 +11,7 @@ public class StartSequence : MonoBehaviour
     [SerializeField]
     private Animator myKickAnim;
     public GameObject bassPrefab;
-    // private ArrayList bassStuff;
+    private ArrayList bassStuff;
     private bool animated = false;
 
     public AudioSource music;
@@ -25,22 +25,17 @@ public class StartSequence : MonoBehaviour
     private void Start()
     {
         changeAnims.Add(AnimsOn);
-        // changeAnims.Add(AnimsOff);
+        changeAnims.Add(AnimsOff);
     }
 
     // Update is called once per frame
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Space) && !animated)
-    //    {
-    //        changeAnims[counter]();
-    //        // if (counter > 1) counter = 0;
-    //    }
-    //}
-
-    public void StartAnims()
+    void Update()
     {
-        if (!animated) changeAnims[counter]();
+        if (Input.GetKeyDown(KeyCode.Space) && !animated)
+        {
+            changeAnims[counter++]();
+            if (counter > 1) counter = 0;
+        }
     }
 
     IEnumerator BassCoroutine()
@@ -50,7 +45,7 @@ public class StartSequence : MonoBehaviour
         {
             Instantiate(bassPrefab, new Vector3(-2.09f, 9.477f, -7.93f), bassPrefab.transform.rotation);
             yield return new WaitForSeconds(0.25f);
-            // if (i == 3) animated = false;
+            if (i == 3) animated = false;
         }
     }
 
@@ -70,16 +65,16 @@ public class StartSequence : MonoBehaviour
         ChangeMusic(animated);
     }
 
-    //void AnimsOff()
-    //{
-    //    myLead.SetBool("PlayLead", false);
-    //    mySnareAnim.SetBool("PlaySnare", false);
-    //    myKickAnim.SetBool("PlayBounce", false);
-    //    for (int i = 0; i < 4; i++)
-    //    {
-    //        // Destroy((GameObject)bassStuff[i]);
-    //    }
-    //    animated = false;
-    //    ChangeMusic(animated);
-    //}
+    void AnimsOff()
+    {
+        myLead.SetBool("PlayLead", false);
+        mySnareAnim.SetBool("PlaySnare", false);
+        myKickAnim.SetBool("PlayBounce", false);
+        for (int i = 0; i < 4; i++)
+        {
+            // Destroy((GameObject)bassStuff[i]);
+        }
+        animated = false;
+        ChangeMusic(animated);
+    }
 }
