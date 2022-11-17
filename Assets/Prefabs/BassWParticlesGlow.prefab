@@ -4825,6 +4825,7 @@ GameObject:
   - component: {fileID: 1973464565418514825}
   - component: {fileID: 1035549787497056671}
   - component: {fileID: 9012891165880772775}
+  - component: {fileID: -7991045697176465181}
   m_Layer: 0
   m_Name: BassWParticlesGlow
   m_TagString: Untagged
@@ -4932,3 +4933,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7991045697176465181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951211131150739841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64900be79cd4e443bc936baf8dcb4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

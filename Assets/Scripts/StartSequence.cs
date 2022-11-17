@@ -14,12 +14,21 @@ public class StartSequence : MonoBehaviour
     // private ArrayList bassStuff;
     private bool animated = false;
 
+    //lights
+    [SerializeField]
+    private Animator myLight;
+
     public AudioSource music;
 
     // for storing the animation states
     delegate void AnimsChange();
     List<AnimsChange> changeAnims = new List<AnimsChange>();
     int counter = 0;
+
+    //For deleting the bass
+    //public GameObject ForBass;
+    //public Transform Parent;
+    public float fabNum = 0;
 
     //adding functions to animation states
     private void Start()
@@ -49,6 +58,7 @@ public class StartSequence : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             Instantiate(bassPrefab, new Vector3(-2.09f, 9.477f, -7.93f), bassPrefab.transform.rotation);
+            fabNum += 0.25f;
             yield return new WaitForSeconds(0.25f);
             // if (i == 3) animated = false;
         }
@@ -62,12 +72,29 @@ public class StartSequence : MonoBehaviour
 
     void AnimsOn()
     {
-        myLead.SetBool("PlayLead", true);
-        mySnareAnim.SetBool("PlaySnare", true);
-        myKickAnim.SetBool("PlayBounce", true);
-        StartCoroutine(BassCoroutine());
+        StartCoroutine(AnimationCoroutine());
         animated = true;
         ChangeMusic(animated);
+    }
+
+    IEnumerator AnimationCoroutine()
+    {
+        myKickAnim.SetBool("PlayBounce", true);
+        // GameObject temp;
+        yield return new WaitForSeconds(8.0f);
+        StartCoroutine(BassCoroutine());
+        yield return new WaitForSeconds(8.0f);
+        mySnareAnim.SetBool("PlaySnare", true);
+        yield return new WaitForSeconds(16.0f);
+        myLead.SetBool("PlayLead", true);
+        myLight.SetBool("PlayLights", true);
+        yield return new WaitForSeconds(32.0f);
+        mySnareAnim.SetBool("PlaySnare", false);
+        yield return new WaitForSeconds(23.5f);
+        myKickAnim.SetBool("PlayBounce", false);
+        yield return new WaitForSeconds(8.0f);
+        myLead.SetBool("PlayLead", false);
+        //Destroy(ForBass);
     }
 
     //void AnimsOff()
