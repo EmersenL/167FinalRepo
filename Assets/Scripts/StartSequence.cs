@@ -18,6 +18,10 @@ public class StartSequence : MonoBehaviour
     [SerializeField]
     private Animator myLight;
 
+    //cameras
+    [SerializeField]
+    private Animator myCam1Anim;
+
     public AudioSource music;
 
     // for storing the animation states
@@ -80,6 +84,7 @@ public class StartSequence : MonoBehaviour
     IEnumerator AnimationCoroutine()
     {
         myKickAnim.SetBool("PlayBounce", true);
+        myCam1Anim.SetBool("PlayCam1", true);
         // GameObject temp;
         yield return new WaitForSeconds(8.0f);
         StartCoroutine(BassCoroutine());
